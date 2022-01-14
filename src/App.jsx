@@ -2,7 +2,7 @@ import {useState} from "react";
 import './App.css';
 import {fetchApi, fetchImg} from "./services/axios";
 import WeatherDisplay from "./components/WeatherDisplay";
-import SearchForm from "./components/SearchForm";
+import BasicTextFields from "./components/inputMUI";
 
 function App() {
 
@@ -14,17 +14,17 @@ function App() {
         fetchApi(searchQuery).then(response => setWeatherData(response))
         fetchImg(searchQuery).then(response => setCityImg(response.hits))
     }
-    const getBgImg = Math.ceil(Math.random() * 20)
+    const getRandomIndex = Math.ceil(Math.random() * 20)
 
     return (
         <div className="App"
              style={{
-                 backgroundImage: `url(${cityImg[getBgImg]?.fullHDURL})`,
-                 backgroundRepeat: "no-repeat",
+                 // backgroundImage: `url(${cityImg[getBgImg]?.fullHDURL})`,
+                 // backgroundRepeat: "no-repeat",
                  height: '100vh',
 
              }}>
-            <SearchForm onSubmit={onSubmit}/>
+            <BasicTextFields onSubmit={onSubmit}/>
             <WeatherDisplay weatherData={weatherData}/>
         </div>
     );

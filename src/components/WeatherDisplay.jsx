@@ -1,6 +1,5 @@
 function WeatherDisplay({weatherData}) {
-
-
+    
     return (
         <>
             <div>
