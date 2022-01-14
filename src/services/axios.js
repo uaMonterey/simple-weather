@@ -12,7 +12,7 @@ export const fetchApi = (city) => {
 
 export const fetchImg = (searchQuery) => {
     return axios.get(
-        `${baseImgURL}/?q='${searchQuery}}&page=1&key=${apiKeyImg}&image_type=photo&orientation=horizontal&per_page=19`,
+        `${baseImgURL}/?q='${searchQuery}}&page=1&key=${apiKeyImg}&image_type=photo&orientation=horizontal&per_page=100`,
     ).then(response => response.data)
 
 }

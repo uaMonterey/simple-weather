@@ -19,13 +19,13 @@ function App() {
     return (
         <div className="App"
              style={{
-                 backgroundImage: `url(${cityImg[getBgImg]?.largeImageURL})`,
+                 backgroundImage: `url(${cityImg[getBgImg]?.fullHDURL})`,
                  backgroundRepeat: "no-repeat",
                  height: '100vh',
 
              }}>
             <SearchForm onSubmit={onSubmit}/>
-            <WeatherDisplay data={weatherData}/>
+            <WeatherDisplay weatherData={weatherData}/>
         </div>
     );
 }
