@@ -1,9 +1,17 @@
-function WeatherDisplay({city}) {
+function WeatherDisplay({data}) {
+    console.log(data)
+    return (<>
 
+            <div>
+                {data.main &&
+                    <>
+                        <h1>Displaying weather for city {data.name}</h1>
+                        <h3> Feels Like: {data.main?.feels_like}°C</h3>
+                    </>
 
-    return (
-        <h1>Displaying weather for city {city}</h1>
-
+                }
+            </div>
+        </>
 
     )
 }
