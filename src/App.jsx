@@ -21,6 +21,7 @@ function App() {
              style={{
                  // backgroundImage: `url(${cityImg[getBgImg]?.fullHDURL})`,
                  // backgroundRepeat: "no-repeat",
+                 backgroundImage: 'https://d3q33rbmdkxzj.cloudfront.net/1589466137456_aFz3CE.png',
                  height: '100vh',
 
              }}>
