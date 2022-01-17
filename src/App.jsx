@@ -1,20 +1,20 @@
 import {useState} from "react";
 import './App.css';
 import {fetchApi, fetchImg} from "./services/axios";
-import WeatherDisplay from "./components/WeatherDisplay";
-import BasicTextFields from "./components/inputMUI";
+import WeatherDisplay from "./components/weatherDisplay/WeatherDisplay";
+import BasicTextFields from "./components/search/Search";
 
 function App() {
 
     const [weatherData, setWeatherData] = useState({})
-    const [cityImg, setCityImg] = useState([])
+    // const [cityImg, setCityImg] = useState([])
 
     const onSubmit = (e, searchQuery) => {
         e.preventDefault()
         fetchApi(searchQuery).then(response => setWeatherData(response))
-        fetchImg(searchQuery).then(response => setCityImg(response.hits))
+        // fetchImg(searchQuery).then(response => setCityImg(response.hits))
     }
-    const getRandomIndex = Math.ceil(Math.random() * 20)
+    // const getRandomIndex = Math.ceil(Math.random() * 20)
 
     return (
         <div className="App"
