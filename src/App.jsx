@@ -1,5 +1,5 @@
 import {useState} from "react";
-import './App.css';
+import './App.scss';
 import {fetchApi, fetchImg} from "./services/axios";
 import WeatherDisplay from "./components/weatherDisplay/WeatherDisplay";
 import BasicTextFields from "./components/search/Search";
@@ -20,13 +20,13 @@ function App() {
         <div className="App"
              style={{
                  // backgroundImage: `url(${cityImg[getBgImg]?.fullHDURL})`,
-                 // backgroundRepeat: "no-repeat",
-                 backgroundImage: 'https://d3q33rbmdkxzj.cloudfront.net/1589466137456_aFz3CE.png',
+                 backgroundSize: 'cover',
+                 backgroundRepeat: "no-repeat",
                  height: '100vh',
 
              }}>
-            <BasicTextFields onSubmit={onSubmit}/>
-            <WeatherDisplay weatherData={weatherData}/>
+            {/*<BasicTextFields onSubmit={onSubmit}/>*/}
+            <WeatherDisplay onSubmit={onSubmit} weatherData={weatherData}/>
         </div>
     );
 }

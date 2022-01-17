@@ -1,8 +1,11 @@
-function WeatherDisplay({weatherData}) {
+import BasicTextFields from "../search/Search";
+
+function WeatherDisplay({weatherData, onSubmit}) {
 
     return (
         <>
-            <div>
+            <div className='weather-card'>
+                <BasicTextFields onSubmit={onSubmit}/>
                 {weatherData.main &&
                     <div>
                         <img src={'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'}
