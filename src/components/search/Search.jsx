@@ -10,9 +10,6 @@ export default function BasicTextFields({onSubmit}) {
     return (
         <Box
             component="form"
-            sx={{
-                '& > :not(style)': {m: 1, width: '30ch'},
-            }}
             noValidate
             autoComplete="off"
             onSubmit={(e) => {
@@ -29,6 +26,7 @@ export default function BasicTextFields({onSubmit}) {
                 placeholder='for example: Los Angeles'
                 InputLabelProps={{className: 'weather-bar'}}
                 InputProps={{
+                    className: 'weather-bar',
                     endAdornment:
                         <InputAdornment position='end'>
                             🌤️

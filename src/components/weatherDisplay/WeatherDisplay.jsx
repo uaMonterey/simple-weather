@@ -7,19 +7,24 @@ function WeatherDisplay({weatherData, onSubmit}) {
             <div className='weather-card'>
                 <BasicTextFields onSubmit={onSubmit}/>
                 {weatherData.main &&
-                    <div>
-                        <img src={'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'}
-                             alt={weatherData.weather[0].description}/>
-                        <h1>{weatherData.weather[0].main} in {weatherData.name}</h1>
-                        <h3> Feels Like: {Math.round(weatherData.main?.feels_like)}°C</h3>
+                    <div className='weather-card__data'>
+                        <p className='title'>Weather in {weatherData.name}</p>
+                        <div className='temp-wrapper'>
+                            <p className='main-temp'>{Math.round(weatherData.main?.temp)}°C</p>
+                            <div className='wrapper'>
+                                <p className='temp'>High: {Math.round(weatherData.main?.temp_max)}°C</p>
+                                <p className='temp'>Low : {Math.round(weatherData.main?.temp_min)}°C</p>
+                            </div>
+                        </div>
 
-                        <p>Current: {Math.round(weatherData.main?.temp)}°C</p>
-                        <p>High: {Math.round(weatherData.main?.temp_max)}°C</p>
-                        <p>Low: {Math.round(weatherData.main?.temp_min)}°C</p>
-                        <p>Wind Speed: {(weatherData?.wind.speed / 2.237).toFixed(1)} m/s</p>
+                        <div className='description-wrapper'>
+                            <img src={'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'}
+                                 alt={weatherData.weather[0].description}/>
+                            <p className='weather'>{weatherData.weather[0].description}</p>
+                        </div>
+                        <p className='humidity'>Humidity: {weatherData.main?.humidity}%</p>
+                        <p className='wind'>Wind Speed: {(weatherData?.wind.speed / 2.237).toFixed(1)} m/s</p>
                     </div>
-
-
                 }
             </div>
         </>
