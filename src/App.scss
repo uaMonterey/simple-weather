@@ -5,14 +5,16 @@ body {
   background-image: url('https://source.unsplash.com/1920x1080/?landscape');
 }
 
+p {
+  margin: 0;
+}
+
 .App {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  //margin: 0;
   font-family: 'Open Sans', sans-serif;
-
   font-size: 150%;
 
 }
@@ -24,44 +26,44 @@ body {
   border-radius: 50px;
   width: 100%;
   max-width: 420px;
-  //margin: 1em;
   text-align: center;
 
   &__data {
     text-align: start;
 
     p.title {
-      //margin: 1em 0.3em;
-
+      margin: 1em 1em 0.2em;
       font-size: 1.5em;
       font-weight: bolder;
-      letter-spacing: -0.07em;
+      letter-spacing: -0.02em;
 
       color: dodgerblue;
     }
 
     p.date {
+      display: flex;
       color: red;
       font-size: small;
+      margin-left: 57%;
 
     }
 
     div.temp-wrapper {
       display: flex;
-      //margin-bottom: 1em;
+      margin-bottom: 1em;
 
       p.main-temp {
         padding: 0;
-        //margin: 0.1em 0.1em;
+        margin: 0.1em 0.1em;
         font-size: 3em;
         font-weight: bolder;
       }
 
       div.wrapper {
-        //margin: auto;
+        margin: auto;
 
         p.temp {
-          //margin: 0;
+          margin: 0;
           font-weight: bolder;
           font-size: 0.75em;
         }
@@ -70,19 +72,18 @@ body {
 
     div.description-wrapper {
       display: flex;
-      align-items: start;
+      align-items: center;
 
 
       p.weather {
         font-size: medium;
         font-weight: bolder;
         text-transform: capitalize;
-        letter-spacing: -0.05em;
+
       }
     }
 
     p.wind, p.humidity {
-      //margin: 0em 0.5em;
       font-size: medium;
       font-weight: bolder;
     }

@@ -3,16 +3,41 @@ import BasicTextFields from "../search/Search";
 
 function WeatherDisplay({weatherData, onSubmit}) {
 
-    console.log()
+
+    function getTime({sys}) {
 
 
-    const getTime = ({dt}) => {
-        // let date = new Date(dt * 1000)
+        const time = {sunrise: null}
+
+
+        function getSunrise(sys) {
+            let date = new Date(sys.sunrise * 1000)
+            let hours = '0' + date.getHours()
+            let minutes = '0' + date.getMinutes()
+            let sunrise = hours.substr(-2) + ':' + minutes.substr(-2)
+        }
+
+        function getSunset(sys) {
+            let date = new Date(sys.sunset * 1000)
+            let hours = '0' + date.getHours()
+            let minutes = '0' + date.getMinutes()
+            let sunset = hours.substr(-2) + ':' + minutes.substr(-2)
+
+        }
+
+        function getDayLength(sys) {
+            let dayLength = null
+        }
+
+        // let timeSunrise = new Date(sys.sunrise * 1000)
+        // let timeSunset = new Date(sys.sunset * 1000)
         // let hours = '0' + date.getHours()
         // let minutes = '0' + date.getMinutes()
-        // let time = hours.substr(-2) + ':' + minutes.substr(-2)
-
+        // let times = hours.substr(-2) + ':' + minutes.substr(-2)
+        return time
     }
+
+    console.log(getTime(weatherData))
 
     return (
         <>
@@ -34,10 +59,18 @@ function WeatherDisplay({weatherData, onSubmit}) {
                             <img src={'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '.png'}
                                  alt={weatherData.weather[0].description}/>
                             <p className='weather'>{weatherData.weather[0].description}</p>
+
                         </div>
                         <p className='humidity'>Humidity: {weatherData.main?.humidity}% 💧</p>
                         <p className='wind'>Wind Speed: {(weatherData?.wind.speed / 2.237).toFixed(1)} m/s 💨🍃</p>
+                        <div className='sun'>
+                            {/*<p className='sunrise'>{weatherData.sys?.sunrise}</p>*/}
+                            {/*<p className='sunset'>{weatherData.sys?.sunset}</p>*/}
+
+                        </div>
                     </div>
+
+
                 }
             </div>
         </>
