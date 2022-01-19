@@ -1,7 +1,6 @@
 import {useState} from "react";
 import './App.scss';
 import {fetchApi, fetchImg} from "./services/axios";
-import getWeatherByCity from "./services/axios";
 import WeatherDisplay from "./components/weatherDisplay/WeatherDisplay";
 
 
@@ -12,7 +11,6 @@ function App() {
 
     const onSubmit = (e, searchQuery) => {
         e.preventDefault()
-        // getWeatherByCity(searchQuery).then(response => setWeatherData(response)).catch((error) => console.log(error))
         fetchApi(searchQuery).then(response => setWeatherData(response)).catch((error) => console.log(error))
         document.body.style.backgroundImage =
             "url('https://source.unsplash.com/1920x1080/?" + searchQuery + "')";
@@ -21,13 +19,7 @@ function App() {
 
 
     return (
-        <div className="App"
-             style={{
-
-                 backgroundSize: 'cover',
-                 backgroundRepeat: "no-repeat",
-                 height: '100vh',
-             }}>
+        <div className="App">
             <WeatherDisplay onSubmit={onSubmit} weatherData={weatherData}/>
         </div>
     );
