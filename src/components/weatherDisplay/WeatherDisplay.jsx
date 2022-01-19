@@ -3,41 +3,38 @@ import BasicTextFields from "../search/Search";
 
 function WeatherDisplay({weatherData, onSubmit}) {
 
+    //
+    // function getTime({sys}) {
+    //
+    //     function getSunrise(sys) {
+    //         let date = new Date(sys.sunrise * 1000)
+    //         let hours = '0' + date.getHours()
+    //         let minutes = '0' + date.getMinutes()
+    //         let sunrise = hours.substr(-2) + ':' + minutes.substr(-2)
+    //         return sunrise
+    //     }
+    //
+    //     function getSunset(sys) {
+    //         let date = new Date(sys.sunset * 1000)
+    //         let hours = '0' + date.getHours()
+    //         let minutes = '0' + date.getMinutes()
+    //         let sunset = hours.substr(-2) + ':' + minutes.substr(-2)
+    //         return sunset
+    //     }
+    //
+    //     function getDayLength(sys) {
+    //         let dayLength = null
+    //     }
 
-    function getTime({sys}) {
+    // let timeSunrise = new Date(sys.sunrise * 1000)
+    // let timeSunset = new Date(sys.sunset * 1000)
+    // let hours = '0' + date.getHours()
+    // let minutes = '0' + date.getMinutes()
+    // let times = hours.substr(-2) + ':' + minutes.substr(-2)
+    //     return {sunrise: getSunrise(), sunset: getSunset()}
+    // }
 
-
-        const time = {sunrise: null}
-
-
-        function getSunrise(sys) {
-            let date = new Date(sys.sunrise * 1000)
-            let hours = '0' + date.getHours()
-            let minutes = '0' + date.getMinutes()
-            let sunrise = hours.substr(-2) + ':' + minutes.substr(-2)
-        }
-
-        function getSunset(sys) {
-            let date = new Date(sys.sunset * 1000)
-            let hours = '0' + date.getHours()
-            let minutes = '0' + date.getMinutes()
-            let sunset = hours.substr(-2) + ':' + minutes.substr(-2)
-
-        }
-
-        function getDayLength(sys) {
-            let dayLength = null
-        }
-
-        // let timeSunrise = new Date(sys.sunrise * 1000)
-        // let timeSunset = new Date(sys.sunset * 1000)
-        // let hours = '0' + date.getHours()
-        // let minutes = '0' + date.getMinutes()
-        // let times = hours.substr(-2) + ':' + minutes.substr(-2)
-        return time
-    }
-
-    console.log(getTime(weatherData))
+    // console.log(getTime(weatherData))
 
     return (
         <>
