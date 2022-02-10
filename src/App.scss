@@ -9,7 +9,7 @@ p {
   margin: 0;
 }
 
-.App {
+.bg-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +17,14 @@ p {
   font-family: 'Open Sans', sans-serif;
   font-size: 150%;
 
+}
+
+.app-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 2.5   em;
+   background: rgba(0, 0, 0, 0.8);
 }
 
 .weather-card {
@@ -90,7 +98,7 @@ p {
 
     div.option-wrapper {
       display: flex;
-      align-items: end;
+      align-items: flex-end;
     }
 
     .icon {
@@ -124,4 +132,19 @@ p {
 }
 
 
-
+.fade-enter{
+   opacity: 0;
+}
+.fade-exit{
+   opacity: 1;
+}
+.fade-enter-active{
+   opacity: 1;
+}
+.fade-exit-active{
+   opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active{
+   transition: opacity 500ms;
+}
