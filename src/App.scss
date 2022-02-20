@@ -1,123 +1,124 @@
+@import './scss/_mixins.scss';
+
 body {
-  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+  // font-size: calc(12px + 4 * ((100vw - 320px) / (1280 - 320)));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('https://source.unsplash.com/1920x1080/?landscape');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-image: url('./images/wall.jpg');
 }
 
 p {
   margin: 0;
 }
 
-.bg-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.App {
+  @include centeredFlex($fd: column);
+  margin-top: 0.5em;
   font-family: 'Open Sans', sans-serif;
-  font-size: 150%;
-
-}
-
-.app-bar {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 2.5   em;
-   background: rgba(0, 0, 0, 0.8);
 }
 
 .weather-card {
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 2em;
+  box-sizing: border-box;
   border-radius: 50px;
-  width: 100%;
-  max-width: 420px;
-  text-align: center;
+  padding: 1em;
+  width: 90vw;
+  min-height: 65vh;
+  margin: 2em;
+  background: rgba(255, 255, 255, 0.4);
+  // background-color: white;
+
+  @include for-size(mobile-only) {
+    font-size: 1em;
+  }
+
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 
   &__data {
-    text-align: start;
-
-    p.title {
-      margin: 1em 0 0.2em;
+    .title {
+      margin-top: 1.5em;
+      text-align: center;
       font-size: 1.5em;
-      font-weight: bolder;
-      letter-spacing: -0.02em;
-
+      font-weight: bold;
       color: dodgerblue;
     }
 
-    p.date, p.day {
+    .date,
+    .day {
       display: flex;
+      justify-content: center;
+      padding-top: 1em;
       color: red;
-      font-size: small;
-      margin-left: 57%;
-
+      font-size: 1em;
     }
 
-    div.temp-wrapper {
-      display: flex;
-      margin-bottom: 1em;
+    .description-wrapper {
+      @include flexible;
+      margin-top: 1.5em;
 
-      p.main-temp {
-        padding: 0;
-        margin: 0.1em 0.1em;
-        font-size: 3em;
-        font-weight: bolder;
-      }
-
-      div.wrapper {
-        margin: auto;
-
-        p.temp {
-          margin: 0;
-          font-weight: bolder;
-          font-size: 0.75em;
-        }
-      }
-    }
-
-    div.description-wrapper {
-      display: flex;
-      align-items: center;
-
-
-      p.weather {
+      .weather {
         font-size: medium;
         font-weight: bolder;
         text-transform: capitalize;
-
       }
     }
 
-    p.wind, p.humidity {
-      font-size: medium;
-      font-weight: bolder;
-    }
-
-    div.option-wrapper {
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .icon {
+    .temp-wrapper {
+      @include flexible;
+      margin: 0em 1em 1em 1em;
       font-size: 2em;
-      margin-right: 0.3em;
+
+      .main-temp {
+        font-size: 3.5em;
+        font-weight: bolder;
+        text-align: center;
+      }
+
+      .utilities {
+        position: relative;
+
+        &__grad {
+          position: absolute;
+          top: -1em;
+          left: 0em;
+          font-size: 2em;
+          font-weight: bold;
+        }
+        &__celsium {
+          position: absolute;
+          top: 0.2em;
+          left: 0.1em;
+          color: lightslategray;
+        }
+      }
+      .temp {
+        font-size: 0.5em;
+      }
+    }
+    .info-wrapper {
+      @include centeredFlex($jc: space-evenly);
+
+      .option-wrapper {
+        margin: 2em 1em;
+      }
+
+      .wind,
+      .humidity {
+        font-size: medium;
+        font-weight: bolder;
+      }
     }
 
-    div.sun {
-      display: inherit;
-      align-items: center;
-      margin-left: 20%;
-    }
-
-    div.sun-time p {
-      font-size: 0.8em;
+    .sun-time {
+      @include centeredFlex($jc: space-evenly);
+      font-size: 1.2em;
     }
   }
 }
-
 
 .search {
   display: flex;
@@ -129,22 +130,4 @@ p {
   color: white !important;
   font-family: 'Lateef', cursive !important;
   font-size: 24px !important;
-}
-
-
-.fade-enter{
-   opacity: 0;
-}
-.fade-exit{
-   opacity: 1;
-}
-.fade-enter-active{
-   opacity: 1;
-}
-.fade-exit-active{
-   opacity: 0;
-}
-.fade-enter-active,
-.fade-exit-active{
-   transition: opacity 500ms;
 }

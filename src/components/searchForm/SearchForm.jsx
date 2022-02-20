@@ -1,22 +1,39 @@
-// import {useState} from "react";
-// import BasicTextFields from "./inputMUI";
-//
-// const SearchForm = ({onSubmit}) => {
-//     const [searchQuery, setSearchQuery] = useState('')
-//
-//     return (
-//         <>
-//             <form onSubmit={(e) => {
-//                 onSubmit(e, searchQuery)
-//                 setSearchQuery('')
-//             }}>
-//                 <input onChange={(e) => setSearchQuery(e.target.value)}
-//                        value={searchQuery} placeholder='enter the city'/>
-//                 {/*<button type='submit'>Search</button>*/}
-//             </form>
-//             <BasicTextFields/></>
-//
-//     )
-// }
-//
-// export default SearchForm
+import { useState } from 'react'
+import Box from '@mui/material/Box'
+import TextField from '@mui/material/TextField'
+import { InputAdornment } from '@mui/material'
+
+const SearchForm = ({ onSubmit }) => {
+  const [searchQuery, setSearchQuery] = useState('')
+  return (
+    <Box
+      component="form"
+      noValidate
+      autoComplete="off"
+      onSubmit={(e) => {
+        onSubmit(e, searchQuery)
+        setSearchQuery('')
+      }}
+    >
+      <TextField
+        id="standard-basic"
+        label="Enter the city"
+        variant="standard"
+        onChange={(e) => setSearchQuery(e.target.value)}
+        value={searchQuery}
+        placeholder="for example: Los Angeles"
+        InputLabelProps={{ className: 'weather-bar' }}
+        InputProps={{
+          className: 'weather-bar',
+          endAdornment: <InputAdornment position="end">🌤️</InputAdornment>,
+        }}
+        // helperText='Or zip code of city'
+        // inputProps={{
+        // readOnly: true
+        // }}
+      />
+    </Box>
+  )
+}
+
+export default SearchForm
