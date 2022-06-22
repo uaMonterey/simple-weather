@@ -3,6 +3,8 @@ import axios from 'axios'
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather?'
 const apiKey = process.env.React_App_Weather_Api_Key
 
+console.log(apiKey)
+
 const baseImgURL = 'https://pixabay.com/api/'
 const apiKeyImg = process.env.React_App_Image_Api_Key
 
